@@ -1,3 +1,4 @@
+
 # **Finding Lane Lines on the Road** 
 
 ## Writeup Template
@@ -29,7 +30,7 @@ The goals / steps of this project are the following:
 ### 1. Describe your pipeline. As part of the description, explain how you modified the draw_lines() function.
 
 My pipeline as implemented in `process_image(image)` consists of 6 steps: 
-1. In `apply_grayscale(image)` the original image is converted to grayscale. ![alt text][image_grayscale]
+1. In `apply_grayscale(image)` the original image is converted to grayscale. <img src="./test_images_output/grayscale.jpg" width="400">
 2. In `apply_gaussian(image_gray, kernel_size)` a Gaussian blur is applied (this step is optional, as `cv2.Canny()` applies a 5x5 Gaussian internally). ![alt text][image_gaussian]
 3. In `apply_canny_edge(image_blur_gray, low_threshold, high_threshold)` the edges of the image are detected using Canny edge detection. ![alt text][image_canny]
 4. In `mask(image_edges, min_x_left, max_x_left, min_x_right, max_x_right, min_y, max_y, ignore_mask_color)` a polygon mask (region of interest) is applied to the image. It is crucial to select the right region of interest. A region of interest that is too small will keep valuable information from being used by the Hough transformation. This leads to inferior results particularly in the case of dashed lane markings. If curvatures are present, a region of interest that is too large will take into account the curved lane markings at the very end of the region of interest. This will lead to inferior results as these lane markings negatively affect the average of all lines detected by the Hough transformation. ![alt text][image_masked]
@@ -51,3 +52,5 @@ Another shortcoming could be ...
 A possible improvement would be to ...
 
 Another potential improvement could be to ...
+
+
